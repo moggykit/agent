@@ -1,0 +1,12 @@
+{
+  "name": "moggykit",
+  "description": "Moggykit for agents",
+  "owner": { "name": "Sarah Sibert" },
+  "plugins": [
+    {
+      "name": "moggykit",
+      "source": "./plugins/moggykit",
+      "description": "A real rescue cat supervises your coding agent."
+    }
+  ]
+}
