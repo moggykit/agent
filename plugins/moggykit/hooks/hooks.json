@@ -1,0 +1,17 @@
+{
+  "description": "Moggykit: a real rescue cat supervises this session.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/cat-on-duty.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}
