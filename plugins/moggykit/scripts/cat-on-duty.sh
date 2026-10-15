@@ -10,7 +10,7 @@ mkdir -p "$cache_dir" 2>/dev/null || exit 0
 cache="$cache_dir/cat-on-duty-$today.txt"
 
 if [ ! -s "$cache" ]; then
-  json=$(curl -sS --max-time 2 -H 'Accept: application/json' -H 'User-Agent: moggykit-plugin' 'https://moggy.dev/api/cats') || exit 0
+  json=$(curl -s --max-time 2 -H 'Accept: application/json' -H 'User-Agent: moggykit-plugin' 'https://moggy.dev/api/cats') || exit 0
   line=$(printf '%s' "$json" | node -e '
     let s = ""; process.stdin.on("data", d => s += d).on("end", () => {
       let cats; try { cats = JSON.parse(s).data; } catch { process.exit(0); }

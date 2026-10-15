@@ -5,11 +5,21 @@
       {
         "matcher": "startup|resume|clear",
         "hooks": [
-          {
-            "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/cat-on-duty.sh",
-            "timeout": 5
-          }
+          { "type": "command", "command": "${CLAUDE_PLUGIN_ROOT}/scripts/cat-on-duty.sh", "timeout": 5 }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          { "type": "command", "command": "${CLAUDE_PLUGIN_ROOT}/scripts/wait-start.sh", "timeout": 5 }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "${CLAUDE_PLUGIN_ROOT}/scripts/wait-end.sh", "timeout": 5 }
         ]
       }
     ]
