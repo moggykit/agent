@@ -29,4 +29,6 @@ cache="$dir/cat-on-duty-$(date -u +%Y-%m-%d).txt"
 
 if [ "$secs" -ge 60 ]; then took="$((secs / 60))m $((secs % 60))s"; else took="${secs}s"; fi
 echo "$now" > "$dir/last-line.txt"
-printf '{"systemMessage": "That took %s. %s napped through it."}\n' "$took" "$name"
+endings=("slept through it" "did not notice" "was asleep the whole time" "washed a paw and went back to sleep" "opened one eye" "kept watch (allegedly)" "supervised from a sunny spot" "would like it known that this was fine")
+if [ -s "$dir/first-line-shown.txt" ]; then ending="${endings[RANDOM % ${#endings[@]}]}"; else ending="napped through it"; echo 1 > "$dir/first-line-shown.txt"; fi
+printf '{"systemMessage": "🐈 That took %s. %s %s."}\n' "$took" "$name" "$ending"
